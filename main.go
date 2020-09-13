@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-import "matrix"
+import "github.com/navafafa/2048/matrix"
 
 type Game struct {
 	grid Matrix

@@ -1,5 +1,11 @@
 package matrix
 
+import (
+	"fmt"
+	"strconv"
+	"math"
+)
+
 type Matrix struct {
 	i, j int
 	data map[[2]int]int

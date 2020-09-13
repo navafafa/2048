@@ -2,32 +2,30 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"math"
 	"math/rand"
 	"bufio"
 	"os"
 )
 
-import "matrix"
+import "github.com/navafafa/2048"
 
 type Game struct {
-	grid Matrix
+	grid matrix.Matrix
 	reader	 *bufio.Reader
 }
 
 func (game *Game) init(i, j int) {
-	game.grid.init(i, j)
-	zeros,_ := game.grid.getZeros()
-	game.grid.set(zeros[rand.Intn(len(zeros))], rand2or4())
-	zeros,_ = game.grid.getZeros()
-	game.grid.set(zeros[rand.Intn(len(zeros))], rand2or4())
+	game.grid.Init(i, j)
+	zeros,_ := game.grid.GetZeros()
+	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
+	zeros,_ = game.grid.GetZeros()
+	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
 	game.reader = bufio.NewReader(os.Stdin)
 }
 
 func (game *Game) actOnInput() {
 	command,_,_ := game.reader.ReadRune()
-	for !game.grid.shift(command) {
+	for !game.grid.Shift(command) {
 		fmt.Println("Can't make that move! Try again!")
 		_,_,_ = game.reader.ReadRune()
 		_,_,_ = game.reader.ReadRune()
@@ -36,21 +34,21 @@ func (game *Game) actOnInput() {
 }
 
 func (game *Game) generateNew() bool {
-	zeros, err := game.grid.getZeros()
+	zeros, err := game.grid.GetZeros()
 	if !err {
 		return err
 	}
-	game.grid.set(zeros[rand.Intn(len(zeros))], rand2or4())
-	zeros,_ = game.grid.getZeros()
+	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
+	zeros,_ = game.grid.GetZeros()
 	fmt.Println(zeros)
 	if err {
-		game.grid.set(zeros[rand.Intn(len(zeros))], rand2or4())
+		game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
 	}
 	return true
 }
 
 func (game *Game) over() bool {
-	_, err := game.grid.getZeros()
+	_, err := game.grid.GetZeros()
 	return !err
 }
 

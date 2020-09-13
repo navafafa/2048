@@ -1,11 +1,17 @@
 package matrix
 
+import (
+	"fmt"
+	"strconv"
+	"math"
+)
+
 type Matrix struct {
 	i, j int
 	data map[[2]int]int
 }
 
-func (matrix *Matrix) init(i, j int) {
+func (matrix *Matrix) Init(i, j int) {
 	matrix.i = i
 	matrix.j = j
 	matrix.data = make(map[[2]int]int)
@@ -29,7 +35,7 @@ func (matrix Matrix) String() string{
 	return str
 }
 
-func (matrix *Matrix) shift(direction rune) bool{
+func (matrix *Matrix) Shift(direction rune) bool{
 	type LoopParams struct {
 		low, high, step int
 	}
@@ -102,12 +108,12 @@ func (matrix *Matrix) shift(direction rune) bool{
 	return err
 }
 
-func (matrix *Matrix) get(coordinates [2]int) (int, bool) {
+func (matrix *Matrix) Get(coordinates [2]int) (int, bool) {
 	v, e := matrix.data[coordinates]
 	return v, e
 }
 
-func (matrix *Matrix) set(coordinates [2]int, v int) bool {
+func (matrix *Matrix) Set(coordinates [2]int, v int) bool {
 	if _,err := matrix.get(coordinates); !err {
 		return err
 	}
@@ -115,7 +121,7 @@ func (matrix *Matrix) set(coordinates [2]int, v int) bool {
 	return true
 }
 
-func (matrix *Matrix) getZeros() ([][2]int, bool) {
+func (matrix *Matrix) GetZeros() ([][2]int, bool) {
 	err := false
 	zeros := [][2]int{}
 	for k, v := range matrix.data {

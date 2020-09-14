@@ -98,7 +98,7 @@ func shift(t *testing.T) {
 	dir := 'r'
 	// 0 0 2      0 0 2
 	// 0 0 0  ->  0 0 0
-	// 0 0 2	  0 0 2
+	// 0 0 2      0 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 2}, 2)
@@ -112,7 +112,7 @@ func shift(t *testing.T) {
 
 	// 0 2 0      0 0 2
 	// 0 0 0  ->  0 0 0
-	// 0 2 0	  0 0 2
+	// 0 2 0      0 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 1}, 2)
@@ -126,7 +126,7 @@ func shift(t *testing.T) {
 
 	// 2 0 0      0 0 2
 	// 0 0 0  ->  0 0 0
-	// 2 0 0	  0 0 2
+	// 2 0 0      0 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -140,7 +140,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 0 2	  0 0 4
+	// 2 0 2      0 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -153,7 +153,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 0 2 2	  0 0 4
+	// 0 2 2      0 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 1}, 2)
@@ -166,7 +166,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 2 0	  0 0 4
+	// 2 2 0      0 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -179,7 +179,7 @@ func shift(t *testing.T) {
 
 	// 2 2 2      0 2 4
 	// 0 0 0  ->  0 0 0
-	// 2 2 2	  0 2 4
+	// 2 2 2      0 2 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -200,7 +200,7 @@ func shift(t *testing.T) {
 	dir = 'l'
 	// 0 0 2      2 0 0
 	// 0 0 0  ->  0 0 0
-	// 0 0 2	  2 0 0
+	// 0 0 2      2 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 2}, 2)
@@ -214,7 +214,7 @@ func shift(t *testing.T) {
 
 	// 0 2 0      2 0 0
 	// 0 0 0  ->  0 0 0
-	// 0 2 0	  2 0 0
+	// 0 2 0      2 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 1}, 2)
@@ -228,7 +228,7 @@ func shift(t *testing.T) {
 
 	// 2 0 0      2 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 0 0	  2 0 0
+	// 2 0 0      2 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -242,7 +242,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 0 2	  4 0 0
+	// 2 0 2      4 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -255,7 +255,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 2 0	  4 0 0
+	// 2 2 0      4 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -268,7 +268,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 0 2 2	  4 0 0
+	// 0 2 2      4 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 1}, 2)
@@ -281,7 +281,7 @@ func shift(t *testing.T) {
 
 	// 2 2 2      4 2 0
 	// 0 0 0  ->  0 0 0
-	// 2 2 2	  4 2 0
+	// 2 2 2      4 2 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -302,7 +302,7 @@ func shift(t *testing.T) {
 	dir = 'd'
 	// 2 0 2      0	0 0
 	// 0 0 0  ->  0 0 0
-	// 0 0 0	  2 0 2
+	// 0 0 0      2 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -316,7 +316,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 2 0 2  ->  0 0 0
-	// 0 0 0	  2 0 2
+	// 0 0 0      2 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{1, 0}, 2)
@@ -330,7 +330,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 2 0 2	  2 0 2
+	// 2 0 2      2 0 2
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -344,7 +344,7 @@ func shift(t *testing.T) {
 
 	// 0 0 2      0 0 0
 	// 0 0 0  ->  0 0 0
-	// 0 0 2	  0 0 4
+	// 0 0 2      0 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 2}, 2)
@@ -357,7 +357,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 0
 	// 2 0 0  ->  0 0 0
-	// 2 0 0	  4 0 0
+	// 2 0 0      4 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{1, 0}, 2)
@@ -370,7 +370,7 @@ func shift(t *testing.T) {
 
 	// 0 0 2      0 0 0
 	// 0 0 2  ->  0 0 0
-	// 0 0 0	  0 0 4
+	// 0 0 0      0 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 2}, 2)
@@ -383,7 +383,7 @@ func shift(t *testing.T) {
 
 	// 2 0 2      0 0 0
 	// 2 0 2  ->  2 0 2
-	// 2 0 2	  4 0 4
+	// 2 0 2      4 0 4
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -404,7 +404,7 @@ func shift(t *testing.T) {
 	dir = 'u'
 	// 0 0 0      2	0 2
 	// 0 0 0  ->  0 0 0
-	// 2 0 2	  0 0 0
+	// 2 0 2      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{2, 0}, 2)
@@ -418,7 +418,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      2 0 2
 	// 2 0 2  ->  0 0 0
-	// 0 0 0	  0 0 0
+	// 0 0 0      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{1, 0}, 2)
@@ -432,7 +432,7 @@ func shift(t *testing.T) {
 
 	// 2 0 2      2 0 2
 	// 0 0 0  ->  0 0 0
-	// 0 0 0	  0 0 0
+	// 0 0 0      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -446,7 +446,7 @@ func shift(t *testing.T) {
 
 	// 0 0 2      0 0 4
 	// 0 0 0  ->  0 0 0
-	// 0 0 2	  0 0 0
+	// 0 0 2      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 2}, 2)
@@ -459,7 +459,7 @@ func shift(t *testing.T) {
 
 	// 2 0 0      4 0 0
 	// 2 0 0  ->  0 0 0
-	// 0 0 0	  0 0 0
+	// 0 0 0      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -472,7 +472,7 @@ func shift(t *testing.T) {
 
 	// 0 0 0      0 0 4
 	// 0 0 2  ->  0 0 0
-	// 0 0 2	  0 0 0
+	// 0 0 2      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{1, 2}, 2)
@@ -485,7 +485,7 @@ func shift(t *testing.T) {
 
 	// 2 0 2      4 0 4
 	// 2 0 2  ->  2 0 2
-	// 2 0 2	  0 0 0
+	// 2 0 2      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 2)
@@ -506,7 +506,7 @@ func shift(t *testing.T) {
 	// Filled but still possible
 	// 4 4 4      4 8 4
 	// 2 4 2  ->  4 2 4
-	// 2 2 2	  0 0 0
+	// 2 2 2      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{0, 0}, 4)
@@ -532,7 +532,7 @@ func shift(t *testing.T) {
 	dir='s' // invalid
 	// 0 0 0      0 0 0
 	// 0 2 0  ->  0 2 0
-	// 0 0 0	  0 0 0
+	// 0 0 0      0 0 0
 	matrix.Init(x, y)
 	initWant()
 	matrix.Set([2]int{1, 1}, 2)

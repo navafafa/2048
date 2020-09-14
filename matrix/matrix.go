@@ -86,18 +86,30 @@ func (matrix *Matrix) Shift(direction rune) bool{
 		return [2]int{j, i}
 	}
 
+	for round:=0; round<int(math.Abs(float64(paramsB.high-paramsB.low))); round++ {
+		for i:=paramsA.low; i!=paramsA.high; i+=paramsA.step {
+			for j:=paramsB.high; j!=paramsB.low; j-=paramsB.step {
+				if matrix.data[index(i, j-paramsB.step)] == 0 && matrix.data[index(i, j)] > 0{
+					matrix.data[index(i, j-paramsB.step)] = matrix.data[index(i, j)]
+					matrix.data[index(i, j)] = 0
+					err = true
+				}
+			}
+		}
+	}
 	for i:=paramsA.low; i!=paramsA.high; i+=paramsA.step {
 		for j:=paramsB.low; j!=paramsB.high; j+=paramsB.step {
-			if matrix.data[index(i, j)] == matrix.data[index(i, j+paramsB.step)] {
+			if matrix.data[index(i, j)] == matrix.data[index(i, j+paramsB.step)] && matrix.data[index(i, j)] > 0 {
 				matrix.data[index(i, j)] = matrix.data[index(i, j)] + matrix.data[index(i, j+paramsB.step)]
 				matrix.data[index(i, j+paramsB.step)] = 0
+				err = true
 			}
 		}
 	}
 	for round:=0; round<int(math.Abs(float64(paramsB.high-paramsB.low))); round++ {
 		for i:=paramsA.low; i!=paramsA.high; i+=paramsA.step {
 			for j:=paramsB.high; j!=paramsB.low; j-=paramsB.step {
-				if matrix.data[index(i, j-paramsB.step)] == 0{
+				if matrix.data[index(i, j-paramsB.step)] == 0 && matrix.data[index(i, j)] > 0{
 					matrix.data[index(i, j-paramsB.step)] = matrix.data[index(i, j)]
 					matrix.data[index(i, j)] = 0
 					err = true
@@ -114,7 +126,7 @@ func (matrix *Matrix) Get(coordinates [2]int) (int, bool) {
 }
 
 func (matrix *Matrix) Set(coordinates [2]int, v int) bool {
-	if _,err := matrix.get(coordinates); !err {
+	if _,err := matrix.Get(coordinates); !err {
 		return err
 	}
 	matrix.data[coordinates] = v
@@ -122,12 +134,12 @@ func (matrix *Matrix) Set(coordinates [2]int, v int) bool {
 }
 
 func (matrix *Matrix) GetZeros() ([][2]int, bool) {
-	err := false
+	err := true
 	zeros := [][2]int{}
 	for k, v := range matrix.data {
 		if v == 0 {
 			zeros = append(zeros, k)
-			err = true
+			err = false
 		}
 	}
 	return zeros, err

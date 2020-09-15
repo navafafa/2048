@@ -1,9 +1,7 @@
 package game
 
 import (
-	"bufio"
 	"math/rand"
-	"os"
 	"fmt"
 )
 
@@ -11,7 +9,10 @@ import "github.com/navafafa/2048/matrix"
 
 type Game struct {
 	grid matrix.Matrix
-	reader	 *bufio.Reader
+}
+
+func (game Game) String() string {
+	return game.grid.String()
 }
 
 func (game *Game) Init(i, j int) {
@@ -20,17 +21,10 @@ func (game *Game) Init(i, j int) {
 	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
 	zeros,_ = game.grid.GetZeros()
 	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
-	game.reader = bufio.NewReader(os.Stdin)
 }
 
-func (game *Game) ActOnInput() {
-	command,_,_ := game.reader.ReadRune()
-	for !game.grid.Shift(command) {
-		fmt.Println("Can't make that move! Try again!")
-		_,_,_ = game.reader.ReadRune()
-		_,_,_ = game.reader.ReadRune()
-		command,_,_ = game.reader.ReadRune()
-	}
+func (game *Game) ActOnInput(command rune) bool {
+	return game.grid.Shift(command)
 }
 
 func (game *Game) GenerateNew() bool {

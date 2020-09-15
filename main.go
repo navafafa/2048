@@ -4,16 +4,17 @@ import (
 	"fmt"
 )
 
+import "github.com/navafafa/2048/game"
 
 func main() {
-	game := Game{}
-	game.init(3, 3)
+	game := game.Game{}
+	game.Init(3, 3)
 	fmt.Println(game.grid)
-	for !game.over() {
-		game.actOnInput()
+	for !game.Over() {
+		game.ActOnInput()
 		_,_,_ = game.reader.ReadRune()
 		_,_,_ = game.reader.ReadRune()
-		game.generateNew()
+		game.GenerateNew()
 		fmt.Println(game.grid)
 	}
 }

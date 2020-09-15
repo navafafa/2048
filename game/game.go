@@ -14,7 +14,7 @@ type Game struct {
 	reader	 *bufio.Reader
 }
 
-func (game *Game) init(i, j int) {
+func (game *Game) Init(i, j int) {
 	game.grid.Init(i, j)
 	zeros,_ := game.grid.GetZeros()
 	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
@@ -23,7 +23,7 @@ func (game *Game) init(i, j int) {
 	game.reader = bufio.NewReader(os.Stdin)
 }
 
-func (game *Game) actOnInput() {
+func (game *Game) ActOnInput() {
 	command,_,_ := game.reader.ReadRune()
 	for !game.grid.Shift(command) {
 		fmt.Println("Can't make that move! Try again!")
@@ -33,7 +33,7 @@ func (game *Game) actOnInput() {
 	}
 }
 
-func (game *Game) generateNew() bool {
+func (game *Game) GenerateNew() bool {
 	zeros, err := game.grid.GetZeros()
 	if !err {
 		return err
@@ -47,7 +47,7 @@ func (game *Game) generateNew() bool {
 	return true
 }
 
-func (game *Game) over() bool {
+func (game *Game) Over() bool {
 	_, err := game.grid.GetZeros()
 	return !err
 }

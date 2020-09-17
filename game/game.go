@@ -32,10 +32,6 @@ func (game *Game) GenerateNew() bool {
 		return true
 	}
 	game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
-	zeros, err = game.grid.GetZeros()
-	if !err {
-		game.grid.Set(zeros[rand.Intn(len(zeros))], rand2or4())
-	}
 	return false
 }
 

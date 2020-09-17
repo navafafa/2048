@@ -7,7 +7,7 @@ import (
 )
 import "github.com/navafafa/2048/game"
 
-var reader bufio.Reader = bufio.NewReader(os.Stdin)
+var reader *bufio.Reader = bufio.NewReader(os.Stdin)
 
 func main() {
 	game := game.Game{}

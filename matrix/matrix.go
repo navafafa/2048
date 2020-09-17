@@ -133,6 +133,14 @@ func (matrix *Matrix) Set(coordinates [2]int, v int) bool {
 	return true
 }
 
+func (matrix *Matrix) GetX() int {
+	return matrix.i
+}
+
+func (matrix *Matrix) GetY() int {
+	return matrix.j
+}
+
 func (matrix *Matrix) GetZeros() ([][2]int, bool) {
 	err := true
 	zeros := [][2]int{}

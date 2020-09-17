@@ -31,6 +31,13 @@ func setup(t *testing.T) {
 	if numOfFilled > 0 {
 		t.Errorf("In matrix.Init(%d, %d), matrix has %d non-zero entries, want exactly 0", x, y, numOfFilled)
 	}
+	if got := matrix.GetX(); got != x {
+		t.Errorf("In matrix.Init(%d, %d), from matrix.GetX() got %d, want %d", x, y, got, x)
+	}
+
+	if got := matrix.GetY(); got != y {
+		t.Errorf("In matrix.Init(%d, %d), from matrix.GetY() got %d, want %d", x, y, got, y)
+	}
 }
 
 func setGet(t *testing.T) {
@@ -547,5 +554,5 @@ func TestMatrix(t *testing.T){
 	t.Run("Setup", func(t *testing.T){setup(t)})
 	t.Run("SetGet", func(t *testing.T){setGet(t)})
 	t.Run("GetZeros", func(t *testing.T){getZeros(t)})
-	t.Run("shift", func(t *testing.T){shift(t)})
+	t.Run("Shift", func(t *testing.T){shift(t)})
 }

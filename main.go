@@ -26,4 +26,5 @@ func main() {
 		game.GenerateNew()
 		fmt.Println(game)
 	}
+	fmt.Println("Game Over!")
 }
